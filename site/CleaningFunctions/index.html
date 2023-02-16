@@ -15,7 +15,7 @@
         <link rel="next" href="../tutorials/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.558e4712.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.0d440cfe.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
@@ -188,7 +188,7 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
@@ -229,26 +229,6 @@
   <a href="#vee_clean.cleaning_functions.clean_column_names" class="md-nav__link">
     clean_column_names()
   </a>
-  
-    <nav class="md-nav" aria-label="clean_column_names()">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vee_clean.cleaning_functions.clean_column_names--parameters" class="md-nav__link">
-    Parameters
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vee_clean.cleaning_functions.clean_column_names--returns" class="md-nav__link">
-    Returns
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -291,19 +271,6 @@
   <a href="#vee_clean.cleaning_functions.extract_country_from_string" class="md-nav__link">
     extract_country_from_string()
   </a>
-  
-    <nav class="md-nav" aria-label="extract_country_from_string()">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vee_clean.cleaning_functions.extract_country_from_string--returns" class="md-nav__link">
-    Returns
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -437,26 +404,6 @@
     clean_column_names()
   </a>
   
-    <nav class="md-nav" aria-label="clean_column_names()">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vee_clean.cleaning_functions.clean_column_names--parameters" class="md-nav__link">
-    Parameters
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vee_clean.cleaning_functions.clean_column_names--returns" class="md-nav__link">
-    Returns
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -498,19 +445,6 @@
   <a href="#vee_clean.cleaning_functions.extract_country_from_string" class="md-nav__link">
     extract_country_from_string()
   </a>
-  
-    <nav class="md-nav" aria-label="extract_country_from_string()">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vee_clean.cleaning_functions.extract_country_from_string--returns" class="md-nav__link">
-    Returns
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -632,28 +566,83 @@
 
   <div class="doc doc-contents ">
   
-      <p>Cleans the column names of a advert performance (organic or paid) dataset, commonly from
-Tracer but could also be from Sprout social. The column names will be standardised so 
-then other functions in other libraries can work with the dataset. </p>
-<h4 id="vee_clean.cleaning_functions.clean_column_names--parameters">Parameters</h4>
+      <p>Cleans the column names of an advertisement performance (organic or paid) dataset, commonly from
+Tracer but could also be from Sprout social. The column names will be standardized so
+then other functions in other libraries can work with the dataset.</p>
 
-<details class="df-">
-  <summary>DataFrame</summary>
-  <p>Input dataframe containing a row item for each peice of creative or a day of advertising</p>
-</details>
-<details class="hardcode_col_dict-">
-  <summary>dictionary</summary>
-  <p>A dictionary specifying exact transformations of column names from the key to the value</p>
-</details>
-<details class="cols_no_change-">
-  <summary>str, list</summary>
-  <p>A list of column names to be left unchanged</p>
-</details>      <h4 id="vee_clean.cleaning_functions.clean_column_names--returns">Returns</h4>
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>df</code></td>
+          <td>
+                <code>DataFrame</code>
+          </td>
+          <td><p>Input dataframe containing a row item for each piece of creative or a day of advertising.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>hardcode_col_dict</code></td>
+          <td>
+                <code>Dict[str, str]</code>
+          </td>
+          <td><p>A dictionary specifying exact transformations of column names
+                                            from the key to the value.</p></td>
+          <td>
+                <code>{}</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>errors</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>How to handle errors during the conversion.
+                    Can be 'raise', 'ignore' or 'warn'</p></td>
+          <td>
+                <code>&#39;ignore&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>cols_no_change</code></td>
+          <td>
+                <code>List[str]</code>
+          </td>
+          <td><p>A list of column names to be left unchanged.</p></td>
+          <td>
+                <code>[&#39;spend&#39;, &#39;date&#39;, &#39;currency&#39;, &#39;cohort&#39;, &#39;creative_name&#39;, &#39;group_id&#39;, &#39;engagements&#39;, &#39;created&#39;, &#39;plays&#39;, &#39;saved&#39;, &#39;post_hastags&#39;, &#39;content_type&#39;, &#39;linked_content&#39;, &#39;post_id&#39;, &#39;video_duration&#39;, &#39;average_time_watched&#39;, &#39;total_time_watched&#39;, &#39;adset_targeting&#39;, &#39;completion_rate&#39;, &#39;targeting&#39;, &#39;cohort_new&#39;, &#39;video_completions&#39;, &#39;post_hashtags&#39;]</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
 
-<details class="df-">
-  <summary>DataFrame</summary>
-  <p>Output dataframe with the column names standardised</p>
-</details>
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>DataFrame</code></td>          <td>
+          </td>
+          <td><p>Output dataframe with the column names standardized.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
         <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 57</span>
@@ -758,32 +747,28 @@ then other functions in other libraries can work with the dataset. </p>
 <span class="normal">156</span>
 <span class="normal">157</span>
 <span class="normal">158</span>
-<span class="normal">159</span>
-<span class="normal">160</span>
-<span class="normal">161</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clean_column_names</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hardcode_col_dict</span> <span class="o">=</span> <span class="p">{},</span><span class="n">errors</span><span class="o">=</span> <span class="s1">&#39;ignore&#39;</span><span class="p">,</span><span class="n">cols_no_change</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;spend&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;currency&#39;</span><span class="p">,</span> 
+<span class="normal">159</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clean_column_names</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hardcode_col_dict</span> <span class="o">=</span> <span class="p">{},</span><span class="n">errors</span><span class="o">=</span> <span class="s1">&#39;ignore&#39;</span><span class="p">,</span><span class="n">cols_no_change</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;spend&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;currency&#39;</span><span class="p">,</span> 
                             <span class="s1">&#39;cohort&#39;</span><span class="p">,</span> <span class="s1">&#39;creative_name&#39;</span><span class="p">,</span> <span class="s1">&#39;group_id&#39;</span><span class="p">,</span> <span class="s1">&#39;engagements&#39;</span><span class="p">,</span> <span class="s1">&#39;created&#39;</span><span class="p">,</span>
                             <span class="s1">&#39;plays&#39;</span><span class="p">,</span> <span class="s1">&#39;saved&#39;</span><span class="p">,</span> <span class="s1">&#39;post_hastags&#39;</span><span class="p">,</span> <span class="s1">&#39;content_type&#39;</span><span class="p">,</span> <span class="s1">&#39;linked_content&#39;</span><span class="p">,</span> <span class="s1">&#39;post_id&#39;</span><span class="p">,</span>
                             <span class="s1">&#39;video_duration&#39;</span><span class="p">,</span> <span class="s1">&#39;average_time_watched&#39;</span><span class="p">,</span> <span class="s1">&#39;total_time_watched&#39;</span><span class="p">,</span>
                             <span class="s1">&#39;adset_targeting&#39;</span><span class="p">,</span> <span class="s1">&#39;completion_rate&#39;</span><span class="p">,</span> <span class="s1">&#39;targeting&#39;</span><span class="p">,</span> <span class="s1">&#39;cohort_new&#39;</span><span class="p">,</span>
                             <span class="s1">&#39;video_completions&#39;</span><span class="p">,</span> <span class="s1">&#39;post_hashtags&#39;</span><span class="p">]):</span>
 
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Cleans the column names of a advert performance (organic or paid) dataset, commonly from</span>
-<span class="sd">        Tracer but could also be from Sprout social. The column names will be standardised so </span>
-<span class="sd">        then other functions in other libraries can work with the dataset. </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Cleans the column names of an advertisement performance (organic or paid) dataset, commonly from</span>
+<span class="sd">    Tracer but could also be from Sprout social. The column names will be standardized so</span>
+<span class="sd">    then other functions in other libraries can work with the dataset.</span>
 
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------------</span>
-<span class="sd">        df : DataFrame</span>
-<span class="sd">            Input dataframe containing a row item for each peice of creative or a day of advertising</span>
-<span class="sd">        hardcode_col_dict : dictionary</span>
-<span class="sd">            A dictionary specifying exact transformations of column names from the key to the value</span>
-<span class="sd">        cols_no_change : str, list</span>
-<span class="sd">            A list of column names to be left unchanged</span>
+<span class="sd">    Args:</span>
+<span class="sd">        df (DataFrame): Input dataframe containing a row item for each piece of creative or a day of advertising.</span>
+<span class="sd">        hardcode_col_dict (Dict[str, str], optional): A dictionary specifying exact transformations of column names</span>
+<span class="sd">                                                        from the key to the value.</span>
+<span class="sd">        errors (str, optional): How to handle errors during the conversion.</span>
+<span class="sd">                                Can be &#39;raise&#39;, &#39;ignore&#39; or &#39;warn&#39;</span>
+<span class="sd">        cols_no_change (List[str], optional): A list of column names to be left unchanged.</span>
 
-<span class="sd">        Returns</span>
-<span class="sd">        ----------------</span>
-<span class="sd">        df : DataFrame</span>
-<span class="sd">            Output dataframe with the column names standardised&quot;&quot;&quot;</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        DataFrame: Output dataframe with the column names standardized.&quot;&quot;&quot;</span>
+
     <span class="n">new_columns</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
         <span class="n">column</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -887,20 +872,7 @@ then other functions in other libraries can work with the dataset. </p>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">274</span>
-<span class="normal">275</span>
-<span class="normal">276</span>
-<span class="normal">277</span>
-<span class="normal">278</span>
-<span class="normal">279</span>
-<span class="normal">280</span>
-<span class="normal">281</span>
-<span class="normal">282</span>
-<span class="normal">283</span>
-<span class="normal">284</span>
-<span class="normal">285</span>
-<span class="normal">286</span>
-<span class="normal">287</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">287</span>
 <span class="normal">288</span>
 <span class="normal">289</span>
 <span class="normal">290</span>
@@ -912,7 +884,20 @@ then other functions in other libraries can work with the dataset. </p>
 <span class="normal">296</span>
 <span class="normal">297</span>
 <span class="normal">298</span>
-<span class="normal">299</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clean_media_type</span><span class="p">(</span><span class="n">media_type</span><span class="p">):</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clean_media_type</span><span class="p">(</span><span class="n">media_type</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Clean the media type into a standardised version of media type&quot;&quot;&quot;</span>
     <span class="n">media_type</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">media_type</span><span class="p">)</span>
     <span class="c1"># replace multiple underscores with a single space</span>
@@ -958,30 +943,82 @@ then other functions in other libraries can work with the dataset. </p>
   
       <p>Clean a placement string into a standardised placement</p>
 
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>placement</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>A string representing the placement of the post </p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>placement</code></td>          <td>
+                <code>str</code>
+          </td>
+          <td><p>The standardised placement of the post, if it is in 'Reel', 'Story' or 'Feed'</p></td>
+        </tr>
+    </tbody>
+  </table>
+
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">302</span>
-<span class="normal">303</span>
-<span class="normal">304</span>
-<span class="normal">305</span>
-<span class="normal">306</span>
-<span class="normal">307</span>
-<span class="normal">308</span>
-<span class="normal">309</span>
-<span class="normal">310</span>
-<span class="normal">311</span>
-<span class="normal">312</span>
-<span class="normal">313</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clean_placement</span><span class="p">(</span><span class="n">placement</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Clean a placement string into a standardised placement&quot;&quot;&quot;</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clean_placement</span><span class="p">(</span><span class="n">placement</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Clean a placement string into a standardised placement</span>
+<span class="sd">    Args:</span>
+<span class="sd">        placement (str): A string representing the placement of the post </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        placement (str): The standardised placement of the post, if it is in &#39;Reel&#39;, &#39;Story&#39; or &#39;Feed&#39;&quot;&quot;&quot;</span>
+
     <span class="n">placement</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">placement</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">placement</span> <span class="o">==</span> <span class="s1">&#39;Nan&#39;</span> <span class="ow">or</span> <span class="n">placement</span> <span class="o">==</span> <span class="s1">&#39;None&#39;</span> <span class="ow">or</span> <span class="n">placement</span> <span class="o">==</span> <span class="s1">&#39;Null&#39;</span> <span class="ow">or</span> <span class="n">placement</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-        <span class="n">placement</span> <span class="o">=</span> <span class="s1">&#39;N/A&#39;</span>
+        <span class="n">placement</span> <span class="o">=</span> <span class="s1">&#39;Feed&#39;</span>
     <span class="k">elif</span> <span class="p">(</span><span class="s1">&#39;Reel&#39;</span> <span class="ow">in</span> <span class="n">placement</span><span class="p">):</span>
         <span class="n">placement</span> <span class="o">=</span> <span class="s1">&#39;Reel&#39;</span>
     <span class="k">elif</span> <span class="s1">&#39;Story&#39;</span> <span class="ow">in</span> <span class="n">placement</span><span class="p">:</span>
         <span class="n">placement</span> <span class="o">=</span> <span class="s1">&#39;Story&#39;</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">placement</span> <span class="o">=</span> <span class="s1">&#39;Post&#39;</span>
+        <span class="n">placement</span> <span class="o">=</span> <span class="s1">&#39;Feed&#39;</span>
     <span class="k">return</span> <span class="n">placement</span>
 </code></pre></div></td></tr></table></div>
       </details>
@@ -1008,18 +1045,18 @@ presented as having a capital letter midway through the word.</p>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">224</span>
-<span class="normal">225</span>
-<span class="normal">226</span>
-<span class="normal">227</span>
-<span class="normal">228</span>
-<span class="normal">229</span>
-<span class="normal">230</span>
-<span class="normal">231</span>
-<span class="normal">232</span>
-<span class="normal">233</span>
-<span class="normal">234</span>
-<span class="normal">235</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clean_platform_name</span><span class="p">(</span><span class="n">platform</span><span class="p">):</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clean_platform_name</span><span class="p">(</span><span class="n">platform</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Cleans platform name, deals with the fact that most platforms </span>
 <span class="sd">    are in the &#39;title&#39; case, i.e. First letter of each word is capitalised</span>
 <span class="sd">    However there are some platforms that have are one word but are usually </span>
@@ -1056,21 +1093,21 @@ This removes the utm parameters</p>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">237</span>
-<span class="normal">238</span>
-<span class="normal">239</span>
-<span class="normal">240</span>
-<span class="normal">241</span>
-<span class="normal">242</span>
-<span class="normal">243</span>
-<span class="normal">244</span>
-<span class="normal">245</span>
-<span class="normal">246</span>
-<span class="normal">247</span>
-<span class="normal">248</span>
-<span class="normal">249</span>
-<span class="normal">250</span>
-<span class="normal">251</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Clean the url of the post to produce a string with just</span>
 <span class="sd">        the important information for matching</span>
 <span class="sd">        In he case of Tiktok remove everything after and including the ?</span>
@@ -1107,12 +1144,12 @@ This removes the utm parameters</p>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">320</span>
-<span class="normal">321</span>
-<span class="normal">322</span>
-<span class="normal">323</span>
-<span class="normal">324</span>
-<span class="normal">325</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">extract_after_nth_occurrence</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">char</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span>
+<span class="normal">343</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">extract_after_nth_occurrence</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">char</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts the string between the nth and n+1th occurrence of the character&quot;&quot;&quot;</span>
     <span class="n">extract</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">char</span><span class="p">)[</span><span class="n">n</span><span class="p">]</span>
     <span class="n">extract</span> <span class="o">=</span> <span class="n">extract</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
@@ -1136,23 +1173,66 @@ This removes the utm parameters</p>
 
   <div class="doc doc-contents ">
   
-      <p>Converts a string containing info identifying a certain 
-Parameters</p>
-<hr />
-<pre><code>string : str 
-    string to pass through perhaps in a lambda function, the country is detected from this
-client_name : str 
-    name of the client that is removed to make the detection of country easier, 
-    for example so you are not searching for 'de' to find Germany with 'indeed' in the string
-</code></pre>
-<h4 id="vee_clean.cleaning_functions.extract_country_from_string--returns">Returns</h4>
-<pre><code>country_code : str 
-    country Tag abbreviation mostly following the ISO 3166-1 alpha-2 format
-</code></pre>
+      <p>Converts a string containing info identifying a certain </p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>string</code></td>
+          <td>
+          </td>
+          <td><p>str 
+string to pass through perhaps in a lambda function, the country is detected from this</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>client_name</code></td>
+          <td>
+          </td>
+          <td><p>str 
+name of the client that is removed to make the detection of country easier, 
+for example so you are not searching for 'de' to find Germany with 'indeed' in the string</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>country_code</code></td>          <td>
+          </td>
+          <td><p>str 
+country Tag abbreviation mostly following the ISO 3166-1 alpha-2 format</p></td>
+        </tr>
+    </tbody>
+  </table>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">163</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
 <span class="normal">164</span>
 <span class="normal">165</span>
 <span class="normal">166</span>
@@ -1189,23 +1269,17 @@ client_name : str
 <span class="normal">197</span>
 <span class="normal">198</span>
 <span class="normal">199</span>
-<span class="normal">200</span>
-<span class="normal">201</span>
-<span class="normal">202</span>
-<span class="normal">203</span>
-<span class="normal">204</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">extract_country_from_string</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">client_name</span><span class="p">,</span> <span class="n">hardcode_dict</span><span class="p">):</span>
+<span class="normal">200</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">extract_country_from_string</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">client_name</span><span class="p">,</span> <span class="n">hardcode_dict</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts a string containing info identifying a certain </span>
-<span class="sd">        Parameters</span>
-<span class="sd">        ---------------</span>
-<span class="sd">            string : str </span>
-<span class="sd">                string to pass through perhaps in a lambda function, the country is detected from this</span>
-<span class="sd">            client_name : str </span>
-<span class="sd">                name of the client that is removed to make the detection of country easier, </span>
-<span class="sd">                for example so you are not searching for &#39;de&#39; to find Germany with &#39;indeed&#39; in the string</span>
-<span class="sd">        Returns</span>
-<span class="sd">        ---------------</span>
-<span class="sd">            country_code : str </span>
-<span class="sd">                country Tag abbreviation mostly following the ISO 3166-1 alpha-2 format&quot;&quot;&quot;</span>
+<span class="sd">    Args:</span>
+<span class="sd">        string : str </span>
+<span class="sd">            string to pass through perhaps in a lambda function, the country is detected from this</span>
+<span class="sd">        client_name : str </span>
+<span class="sd">            name of the client that is removed to make the detection of country easier, </span>
+<span class="sd">            for example so you are not searching for &#39;de&#39; to find Germany with &#39;indeed&#39; in the string</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        country_code : str </span>
+<span class="sd">            country Tag abbreviation mostly following the ISO 3166-1 alpha-2 format&quot;&quot;&quot;</span>
     <span class="n">string</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
     <span class="n">hardcode_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">hardcode_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
     <span class="n">client_name</span> <span class="o">=</span> <span class="n">client_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -1257,10 +1331,10 @@ client_name : str
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">315</span>
-<span class="normal">316</span>
-<span class="normal">317</span>
-<span class="normal">318</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">extract_quarter_from_date</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">extract_quarter_from_date</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts the quarter from the date&quot;&quot;&quot;</span>
     <span class="n">date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">date</span><span class="o">.</span><span class="n">quarter</span>
@@ -1282,11 +1356,71 @@ client_name : str
 
   <div class="doc doc-contents ">
   
-      <p>Extracts the region from the country column</p>
+      <p>Extracts the region from the given country.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>country</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>A string representing the country name.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>str</code></td>          <td>
+          </td>
+          <td><p>The region of the given country, if it is in 'UK/IE', 'NL', 'DE', 'FR', 'IT', 'BE',
+it returns "EMEA". If the country is 'CA' or 'US', it returns "N. America". If the
+country is not found, it returns None.</p></td>
+        </tr>
+    </tbody>
+  </table>
+      <p>Example:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>extract_region_from_country("FR")
+'EMEA'
+extract_region_from_country("US")
+'N. America'
+extract_region_from_country("XX")
+None</p>
+</blockquote>
+</blockquote>
+</blockquote>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">214</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
 <span class="normal">215</span>
 <span class="normal">216</span>
 <span class="normal">217</span>
@@ -1294,8 +1428,36 @@ client_name : str
 <span class="normal">219</span>
 <span class="normal">220</span>
 <span class="normal">221</span>
-<span class="normal">222</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">extract_region_from_country</span><span class="p">(</span><span class="n">country</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts the region from the country column&quot;&quot;&quot;</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">extract_region_from_country</span><span class="p">(</span><span class="n">country</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts the region from the given country.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        country (str): A string representing the country name.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: The region of the given country, if it is in &#39;UK/IE&#39;, &#39;NL&#39;, &#39;DE&#39;, &#39;FR&#39;, &#39;IT&#39;, &#39;BE&#39;,</span>
+<span class="sd">            it returns &quot;EMEA&quot;. If the country is &#39;CA&#39; or &#39;US&#39;, it returns &quot;N. America&quot;. If the</span>
+<span class="sd">            country is not found, it returns None.</span>
+<span class="sd">    Example:</span>
+<span class="sd">    &gt;&gt;&gt; extract_region_from_country(&quot;FR&quot;)</span>
+<span class="sd">    &#39;EMEA&#39;</span>
+<span class="sd">    &gt;&gt;&gt; extract_region_from_country(&quot;US&quot;)</span>
+<span class="sd">    &#39;N. America&#39;</span>
+<span class="sd">    &gt;&gt;&gt; extract_region_from_country(&quot;XX&quot;)</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">country</span> <span class="o">==</span> <span class="s1">&#39;UK/IE&#39;</span> <span class="ow">or</span> <span class="n">country</span> <span class="o">==</span> <span class="s1">&#39;NL&#39;</span> <span class="ow">or</span> <span class="n">country</span> <span class="o">==</span> <span class="s1">&#39;DE&#39;</span> \
             <span class="ow">or</span> <span class="n">country</span> <span class="o">==</span> <span class="s1">&#39;FR&#39;</span> <span class="ow">or</span> <span class="n">country</span> <span class="o">==</span> <span class="s1">&#39;IT&#39;</span> <span class="ow">or</span> <span class="n">country</span> <span class="o">==</span> <span class="s1">&#39;BE&#39;</span><span class="p">:</span>
         <span class="k">return</span> <span class="s2">&quot;EMEA&quot;</span>
@@ -1413,13 +1575,13 @@ are essentially the same but one just has a whitespace</p>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">206</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
 <span class="normal">207</span>
-<span class="normal">208</span>
-<span class="normal">209</span>
-<span class="normal">210</span>
-<span class="normal">211</span>
-<span class="normal">212</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">strip_object_columns</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="normal">208</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">strip_object_columns</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Strips leading and trailing whitespaces in columns containing strings. </span>
 <span class="sd">        This stops effective duplications when two categories in a column </span>
 <span class="sd">        are essentially the same but one just has a whitespace&quot;&quot;&quot;</span>
@@ -1450,19 +1612,19 @@ the highest amount of 'impressions' or 'video views'</p>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">349</span>
-<span class="normal">350</span>
-<span class="normal">351</span>
-<span class="normal">352</span>
-<span class="normal">353</span>
-<span class="normal">354</span>
-<span class="normal">355</span>
-<span class="normal">356</span>
-<span class="normal">357</span>
-<span class="normal">358</span>
-<span class="normal">359</span>
-<span class="normal">360</span>
-<span class="normal">361</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">two_urls_per_post_to_1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">two_urls_per_post_to_1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Sometimes there are identical posts posted on the same day. </span>
 <span class="sd">    This can be used to return just the url of the post with</span>
 <span class="sd">    the highest amount of &#39;impressions&#39; or &#39;video views&#39;&quot;&quot;&quot;</span>
@@ -1499,26 +1661,26 @@ it is a numerical code, sometimes it is alphanumeric</p>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">253</span>
-<span class="normal">254</span>
-<span class="normal">255</span>
-<span class="normal">256</span>
-<span class="normal">257</span>
-<span class="normal">258</span>
-<span class="normal">259</span>
-<span class="normal">260</span>
-<span class="normal">261</span>
-<span class="normal">262</span>
-<span class="normal">263</span>
-<span class="normal">264</span>
-<span class="normal">265</span>
-<span class="normal">266</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">266</span>
 <span class="normal">267</span>
 <span class="normal">268</span>
 <span class="normal">269</span>
 <span class="normal">270</span>
 <span class="normal">271</span>
-<span class="normal">272</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">updated_value_extract</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">updated_value_extract</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract the unique identifier for a post from the url</span>
 <span class="sd">        This format of this code depends on the platform, sometimes</span>
 <span class="sd">        it is a numerical code, sometimes it is alphanumeric&quot;&quot;&quot;</span>
@@ -1561,17 +1723,17 @@ This function converts it into just seconds</p>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">380</span>
-<span class="normal">381</span>
-<span class="normal">382</span>
-<span class="normal">383</span>
-<span class="normal">384</span>
-<span class="normal">385</span>
-<span class="normal">386</span>
-<span class="normal">387</span>
-<span class="normal">388</span>
-<span class="normal">389</span>
-<span class="normal">390</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">video_len_toseconds</span><span class="p">(</span><span class="n">len_string</span><span class="p">):</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">video_len_toseconds</span><span class="p">(</span><span class="n">len_string</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Video lengths come through tracer in the format &#39;minute:seconds&#39;, e.g. &#39;1:20&#39; or 80 seconds</span>
 <span class="sd">        This function converts it into just seconds&quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
@@ -1632,10 +1794,10 @@ This function converts it into just seconds</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.51d95adb.min.js"></script>
+      <script src="../assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
     
   </body>

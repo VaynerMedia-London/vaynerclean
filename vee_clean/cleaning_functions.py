@@ -313,16 +313,21 @@ def clean_media_type(media_type):
 
 
 def clean_placement(placement):
-    """Clean a placement string into a standardised placement"""
+    """Clean a placement string into a standardised placement
+    Args:
+        placement (str): A string representing the placement of the post 
+    Returns:
+        placement (str): The standardised placement of the post, if it is in 'Reel', 'Story' or 'Feed'"""
+        
     placement = str(placement).title().strip()
     if placement == 'Nan' or placement == 'None' or placement == 'Null' or placement == '':
-        placement = 'N/A'
+        placement = 'Feed'
     elif ('Reel' in placement):
         placement = 'Reel'
     elif 'Story' in placement:
         placement = 'Story'
     else:
-        placement = 'Post'
+        placement = 'Feed'
     return placement
 
 def extract_quarter_from_date(date):
