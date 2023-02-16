@@ -4,7 +4,7 @@ names between platforms and countries or extracting a Country like "France" from
 
 ## Library Installation
 ```
-pip install vayner-clean
+pip install vaynerclean
 ```
 To upgrade the library after an update
 ```
