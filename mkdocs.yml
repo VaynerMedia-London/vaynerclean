@@ -1,0 +1,13 @@
+site_name: Vayner Clean Docs
+
+theme:
+  name: "material"
+
+plugins:
+  - mkdocstrings
+
+nav:
+  - Getting Started: index.md
+  - Other Vayner Libraries: OtherVaynerLibraries.md
+  - Cleaning Functions: CleaningFunctions.md
+  - Tutorials: tutorials.md

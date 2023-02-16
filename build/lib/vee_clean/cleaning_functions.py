@@ -54,7 +54,8 @@ def prepare_string_matching(string, is_url=False):
     string = re.sub(r'[^\w\s]', '', string)
     return string
 
-def clean_column_names(df, hardcode_col_dict = {},cols_no_change = ['spend', 'date', 'currency', 'cohort', 'creative_name', 'group_id', 'engagements', 'created',
+def clean_column_names(df, hardcode_col_dict = {},errors= 'ignore',cols_no_change = ['spend', 'date', 'currency', 
+                            'cohort', 'creative_name', 'group_id', 'engagements', 'created',
                             'plays', 'saved', 'post_hastags', 'content_type', 'linked_content', 'post_id',
                             'video_duration', 'average_time_watched', 'total_time_watched',
                             'adset_targeting', 'completion_rate', 'targeting', 'cohort_new',
@@ -136,7 +137,7 @@ def clean_column_names(df, hardcode_col_dict = {},cols_no_change = ['spend', 'da
             column = 'link_clicks'  # for all_plats_paid
         elif ('clicks' in column) and ('link' not in column):
             column = 'clicks'  # for all_plats_paid
-        elif ('network' in column) or (column == 'platform'):
+        elif ('network' in column) or ('platform' in column):
             column = 'platform'  # for li_tt_igStories_organic
         elif (('media' in column) and ('product' in column) and ('type' in column)) or ('placement' in column):
             column = 'placement'
@@ -146,7 +147,10 @@ def clean_column_names(df, hardcode_col_dict = {},cols_no_change = ['spend', 'da
         elif('cohort' in column):
             column = 'cohort'
         else:
-            logger.info(f'Column "{column}" is not handled in column cleaning function')
+            message = f'Column "{column}" is not handled in column cleaning function'
+            if errors == 'raise':
+                raise Exception(message)
+            logger.info(message)
 
         new_columns.append(column)
     if len(new_columns) != len(set(new_columns)):

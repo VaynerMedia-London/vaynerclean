@@ -61,23 +61,21 @@ def clean_column_names(df, hardcode_col_dict = {},errors= 'ignore',cols_no_chang
                             'adset_targeting', 'completion_rate', 'targeting', 'cohort_new',
                             'video_completions', 'post_hashtags']):
 
-    """Cleans the column names of a advert performance (organic or paid) dataset, commonly from
-        Tracer but could also be from Sprout social. The column names will be standardised so 
-        then other functions in other libraries can work with the dataset. 
-        
-        Parameters
-        ----------------
-        df : DataFrame
-            Input dataframe containing a row item for each peice of creative or a day of advertising
-        hardcode_col_dict : dictionary
-            A dictionary specifying exact transformations of column names from the key to the value
-        cols_no_change : str, list
-            A list of column names to be left unchanged
-        
-        Returns
-        ----------------
-        df : DataFrame
-            Output dataframe with the column names standardised"""
+    """Cleans the column names of an advertisement performance (organic or paid) dataset, commonly from
+    Tracer but could also be from Sprout social. The column names will be standardized so
+    then other functions in other libraries can work with the dataset.
+
+    Args:
+        df (DataFrame): Input dataframe containing a row item for each piece of creative or a day of advertising.
+        hardcode_col_dict (Dict[str, str], optional): A dictionary specifying exact transformations of column names
+                                                        from the key to the value.
+        errors (str, optional): How to handle errors during the conversion.
+                                Can be 'raise', 'ignore' or 'warn'
+        cols_no_change (List[str], optional): A list of column names to be left unchanged.
+
+    Returns:
+        DataFrame: Output dataframe with the column names standardized."""
+    
     new_columns = []
     for column in df.columns:
         column = column.lower()
@@ -162,17 +160,15 @@ def clean_column_names(df, hardcode_col_dict = {},errors= 'ignore',cols_no_chang
 
 def extract_country_from_string(string, client_name, hardcode_dict):
     """Converts a string containing info identifying a certain 
-        Parameters
-        ---------------
-            string : str 
-                string to pass through perhaps in a lambda function, the country is detected from this
-            client_name : str 
-                name of the client that is removed to make the detection of country easier, 
-                for example so you are not searching for 'de' to find Germany with 'indeed' in the string
-        Returns
-        ---------------
-            country_code : str 
-                country Tag abbreviation mostly following the ISO 3166-1 alpha-2 format"""
+    Args:
+        string : str 
+            string to pass through perhaps in a lambda function, the country is detected from this
+        client_name : str 
+            name of the client that is removed to make the detection of country easier, 
+            for example so you are not searching for 'de' to find Germany with 'indeed' in the string
+    Returns:
+        country_code : str 
+            country Tag abbreviation mostly following the ISO 3166-1 alpha-2 format"""
     string = str(string).lower().strip()
     hardcode_dict = {k.lower():v for k,v in hardcode_dict.items()}
     client_name = client_name.lower()
@@ -212,7 +208,23 @@ def strip_object_columns(df):
     return df
 
 def extract_region_from_country(country):
-    """Extracts the region from the country column"""
+    """Extracts the region from the given country.
+
+    Args:
+        country (str): A string representing the country name.
+
+    Returns:
+        str: The region of the given country, if it is in 'UK/IE', 'NL', 'DE', 'FR', 'IT', 'BE',
+            it returns "EMEA". If the country is 'CA' or 'US', it returns "N. America". If the
+            country is not found, it returns None.
+    Example:
+    >>> extract_region_from_country("FR")
+    'EMEA'
+    >>> extract_region_from_country("US")
+    'N. America'
+    >>> extract_region_from_country("XX")
+    None
+    """
     if country == 'UK/IE' or country == 'NL' or country == 'DE' \
             or country == 'FR' or country == 'IT' or country == 'BE':
         return "EMEA"
@@ -220,6 +232,7 @@ def extract_region_from_country(country):
         return "N. America"
     else:
         return None
+
 
 def clean_platform_name(platform):
     """Cleans platform name, deals with the fact that most platforms 
