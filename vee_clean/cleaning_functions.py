@@ -376,7 +376,7 @@ def two_urls_per_post_to_1(x):
         max_score = x['video_views'].max()
 
     # return pd.Series(d,index=list(d.keys()))
-    return x[x[target_col] == max_score]['url']
+    return x[x[target_col] == max_score][['url','influencer?']]
 
 
 # for ID_Organic__CA_2022_Q2_USD_ENG_TW
