@@ -289,33 +289,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vee_clean.cleaning_functions.prepare_string_matching" class="md-nav__link">
-    prepare_string_matching()
-  </a>
-  
-    <nav class="md-nav" aria-label="prepare_string_matching()">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vee_clean.cleaning_functions.prepare_string_matching--parameters" class="md-nav__link">
-    Parameters
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vee_clean.cleaning_functions.prepare_string_matching--returns" class="md-nav__link">
-    Returns
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#vee_clean.cleaning_functions.strip_object_columns" class="md-nav__link">
     strip_object_columns()
   </a>
@@ -459,33 +432,6 @@
   <a href="#vee_clean.cleaning_functions.extract_region_from_country" class="md-nav__link">
     extract_region_from_country()
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vee_clean.cleaning_functions.prepare_string_matching" class="md-nav__link">
-    prepare_string_matching()
-  </a>
-  
-    <nav class="md-nav" aria-label="prepare_string_matching()">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vee_clean.cleaning_functions.prepare_string_matching--parameters" class="md-nav__link">
-    Parameters
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vee_clean.cleaning_functions.prepare_string_matching--returns" class="md-nav__link">
-    Returns
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -645,7 +591,29 @@ then other functions in other libraries can work with the dataset.</p>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 57</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
 <span class="normal"> 58</span>
 <span class="normal"> 59</span>
 <span class="normal"> 60</span>
@@ -725,29 +693,7 @@ then other functions in other libraries can work with the dataset.</p>
 <span class="normal">134</span>
 <span class="normal">135</span>
 <span class="normal">136</span>
-<span class="normal">137</span>
-<span class="normal">138</span>
-<span class="normal">139</span>
-<span class="normal">140</span>
-<span class="normal">141</span>
-<span class="normal">142</span>
-<span class="normal">143</span>
-<span class="normal">144</span>
-<span class="normal">145</span>
-<span class="normal">146</span>
-<span class="normal">147</span>
-<span class="normal">148</span>
-<span class="normal">149</span>
-<span class="normal">150</span>
-<span class="normal">151</span>
-<span class="normal">152</span>
-<span class="normal">153</span>
-<span class="normal">154</span>
-<span class="normal">155</span>
-<span class="normal">156</span>
-<span class="normal">157</span>
-<span class="normal">158</span>
-<span class="normal">159</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clean_column_names</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hardcode_col_dict</span> <span class="o">=</span> <span class="p">{},</span><span class="n">errors</span><span class="o">=</span> <span class="s1">&#39;ignore&#39;</span><span class="p">,</span><span class="n">cols_no_change</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;spend&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;currency&#39;</span><span class="p">,</span> 
+<span class="normal">137</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clean_column_names</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hardcode_col_dict</span> <span class="o">=</span> <span class="p">{},</span><span class="n">errors</span><span class="o">=</span> <span class="s1">&#39;ignore&#39;</span><span class="p">,</span><span class="n">cols_no_change</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;spend&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;currency&#39;</span><span class="p">,</span> 
                             <span class="s1">&#39;cohort&#39;</span><span class="p">,</span> <span class="s1">&#39;creative_name&#39;</span><span class="p">,</span> <span class="s1">&#39;group_id&#39;</span><span class="p">,</span> <span class="s1">&#39;engagements&#39;</span><span class="p">,</span> <span class="s1">&#39;created&#39;</span><span class="p">,</span>
                             <span class="s1">&#39;plays&#39;</span><span class="p">,</span> <span class="s1">&#39;saved&#39;</span><span class="p">,</span> <span class="s1">&#39;post_hastags&#39;</span><span class="p">,</span> <span class="s1">&#39;content_type&#39;</span><span class="p">,</span> <span class="s1">&#39;linked_content&#39;</span><span class="p">,</span> <span class="s1">&#39;post_id&#39;</span><span class="p">,</span>
                             <span class="s1">&#39;video_duration&#39;</span><span class="p">,</span> <span class="s1">&#39;average_time_watched&#39;</span><span class="p">,</span> <span class="s1">&#39;total_time_watched&#39;</span><span class="p">,</span>
@@ -872,32 +818,32 @@ then other functions in other libraries can work with the dataset.</p>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">287</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
 <span class="normal">288</span>
 <span class="normal">289</span>
-<span class="normal">290</span>
-<span class="normal">291</span>
-<span class="normal">292</span>
-<span class="normal">293</span>
-<span class="normal">294</span>
-<span class="normal">295</span>
-<span class="normal">296</span>
-<span class="normal">297</span>
-<span class="normal">298</span>
-<span class="normal">299</span>
-<span class="normal">300</span>
-<span class="normal">301</span>
-<span class="normal">302</span>
-<span class="normal">303</span>
-<span class="normal">304</span>
-<span class="normal">305</span>
-<span class="normal">306</span>
-<span class="normal">307</span>
-<span class="normal">308</span>
-<span class="normal">309</span>
-<span class="normal">310</span>
-<span class="normal">311</span>
-<span class="normal">312</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clean_media_type</span><span class="p">(</span><span class="n">media_type</span><span class="p">):</span>
+<span class="normal">290</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clean_media_type</span><span class="p">(</span><span class="n">media_type</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Clean the media type into a standardised version of media type&quot;&quot;&quot;</span>
     <span class="n">media_type</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">media_type</span><span class="p">)</span>
     <span class="c1"># replace multiple underscores with a single space</span>
@@ -987,23 +933,23 @@ then other functions in other libraries can work with the dataset.</p>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">315</span>
-<span class="normal">316</span>
-<span class="normal">317</span>
-<span class="normal">318</span>
-<span class="normal">319</span>
-<span class="normal">320</span>
-<span class="normal">321</span>
-<span class="normal">322</span>
-<span class="normal">323</span>
-<span class="normal">324</span>
-<span class="normal">325</span>
-<span class="normal">326</span>
-<span class="normal">327</span>
-<span class="normal">328</span>
-<span class="normal">329</span>
-<span class="normal">330</span>
-<span class="normal">331</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clean_placement</span><span class="p">(</span><span class="n">placement</span><span class="p">):</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clean_placement</span><span class="p">(</span><span class="n">placement</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Clean a placement string into a standardised placement</span>
 <span class="sd">    Args:</span>
 <span class="sd">        placement (str): A string representing the placement of the post </span>
@@ -1045,18 +991,18 @@ presented as having a capital letter midway through the word.</p>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">237</span>
-<span class="normal">238</span>
-<span class="normal">239</span>
-<span class="normal">240</span>
-<span class="normal">241</span>
-<span class="normal">242</span>
-<span class="normal">243</span>
-<span class="normal">244</span>
-<span class="normal">245</span>
-<span class="normal">246</span>
-<span class="normal">247</span>
-<span class="normal">248</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clean_platform_name</span><span class="p">(</span><span class="n">platform</span><span class="p">):</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clean_platform_name</span><span class="p">(</span><span class="n">platform</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Cleans platform name, deals with the fact that most platforms </span>
 <span class="sd">    are in the &#39;title&#39; case, i.e. First letter of each word is capitalised</span>
 <span class="sd">    However there are some platforms that have are one word but are usually </span>
@@ -1093,21 +1039,21 @@ This removes the utm parameters</p>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">250</span>
-<span class="normal">251</span>
-<span class="normal">252</span>
-<span class="normal">253</span>
-<span class="normal">254</span>
-<span class="normal">255</span>
-<span class="normal">256</span>
-<span class="normal">257</span>
-<span class="normal">258</span>
-<span class="normal">259</span>
-<span class="normal">260</span>
-<span class="normal">261</span>
-<span class="normal">262</span>
-<span class="normal">263</span>
-<span class="normal">264</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Clean the url of the post to produce a string with just</span>
 <span class="sd">        the important information for matching</span>
 <span class="sd">        In he case of Tiktok remove everything after and including the ?</span>
@@ -1144,12 +1090,12 @@ This removes the utm parameters</p>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">338</span>
-<span class="normal">339</span>
-<span class="normal">340</span>
-<span class="normal">341</span>
-<span class="normal">342</span>
-<span class="normal">343</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">extract_after_nth_occurrence</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">char</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">extract_after_nth_occurrence</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">char</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts the string between the nth and n+1th occurrence of the character&quot;&quot;&quot;</span>
     <span class="n">extract</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">char</span><span class="p">)[</span><span class="n">n</span><span class="p">]</span>
     <span class="n">extract</span> <span class="o">=</span> <span class="n">extract</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
@@ -1230,7 +1176,29 @@ country Tag abbreviation mostly following the ISO 3166-1 alpha-2 format</p></td>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">161</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
 <span class="normal">162</span>
 <span class="normal">163</span>
 <span class="normal">164</span>
@@ -1247,29 +1215,7 @@ country Tag abbreviation mostly following the ISO 3166-1 alpha-2 format</p></td>
 <span class="normal">175</span>
 <span class="normal">176</span>
 <span class="normal">177</span>
-<span class="normal">178</span>
-<span class="normal">179</span>
-<span class="normal">180</span>
-<span class="normal">181</span>
-<span class="normal">182</span>
-<span class="normal">183</span>
-<span class="normal">184</span>
-<span class="normal">185</span>
-<span class="normal">186</span>
-<span class="normal">187</span>
-<span class="normal">188</span>
-<span class="normal">189</span>
-<span class="normal">190</span>
-<span class="normal">191</span>
-<span class="normal">192</span>
-<span class="normal">193</span>
-<span class="normal">194</span>
-<span class="normal">195</span>
-<span class="normal">196</span>
-<span class="normal">197</span>
-<span class="normal">198</span>
-<span class="normal">199</span>
-<span class="normal">200</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">extract_country_from_string</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">client_name</span><span class="p">,</span> <span class="n">hardcode_dict</span><span class="p">):</span>
+<span class="normal">178</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">extract_country_from_string</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">client_name</span><span class="p">,</span> <span class="n">hardcode_dict</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts a string containing info identifying a certain </span>
 <span class="sd">    Args:</span>
 <span class="sd">        string : str </span>
@@ -1331,10 +1277,10 @@ country Tag abbreviation mostly following the ISO 3166-1 alpha-2 format</p></td>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">333</span>
-<span class="normal">334</span>
-<span class="normal">335</span>
-<span class="normal">336</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">extract_quarter_from_date</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">extract_quarter_from_date</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts the quarter from the date&quot;&quot;&quot;</span>
     <span class="n">date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">date</span><span class="o">.</span><span class="n">quarter</span>
@@ -1416,31 +1362,31 @@ None</p>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">210</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
 <span class="normal">211</span>
-<span class="normal">212</span>
-<span class="normal">213</span>
-<span class="normal">214</span>
-<span class="normal">215</span>
-<span class="normal">216</span>
-<span class="normal">217</span>
-<span class="normal">218</span>
-<span class="normal">219</span>
-<span class="normal">220</span>
-<span class="normal">221</span>
-<span class="normal">222</span>
-<span class="normal">223</span>
-<span class="normal">224</span>
-<span class="normal">225</span>
-<span class="normal">226</span>
-<span class="normal">227</span>
-<span class="normal">228</span>
-<span class="normal">229</span>
-<span class="normal">230</span>
-<span class="normal">231</span>
-<span class="normal">232</span>
-<span class="normal">233</span>
-<span class="normal">234</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">extract_region_from_country</span><span class="p">(</span><span class="n">country</span><span class="p">):</span>
+<span class="normal">212</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">extract_region_from_country</span><span class="p">(</span><span class="n">country</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts the region from the given country.</span>
 
 <span class="sd">    Args:</span>
@@ -1475,92 +1421,6 @@ None</p>
 
 
 
-<h2 id="vee_clean.cleaning_functions.prepare_string_matching" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">prepare_string_matching</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">is_url</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
-
-</h2>
-
-
-  <div class="doc doc-contents ">
-  
-      <p>Prepare strings for matching say in a merge function by removing unnecessary 
-detail, whitespaces and converting to lower case
-Remove emojis as sometimes they can not come through properly in Tracer data</p>
-<h4 id="vee_clean.cleaning_functions.prepare_string_matching--parameters">Parameters</h4>
-
-<details class="string-">
-  <summary>str</summary>
-  <p>The string to be cleaned</p>
-</details>
-<details class="is_url-">
-  <summary>bool</summary>
-  <p>If True then remove characters after the '?' which are utm parameters
-These can be present in soem urls we recieve and others not</p>
-</details>      <h4 id="vee_clean.cleaning_functions.prepare_string_matching--returns">Returns</h4>
-
-<details class="string-">
-  <summary>str</summary>
-  <p>A cleaned string stripped of whitespace, punctuation and emojis</p>
-</details>
-      <details class="quote">
-        <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">prepare_string_matching</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">is_url</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Prepare strings for matching say in a merge function by removing unnecessary </span>
-<span class="sd">        detail, whitespaces and converting to lower case</span>
-<span class="sd">        Remove emojis as sometimes they can not come through properly in Tracer data</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        -----------------</span>
-<span class="sd">        string : str </span>
-<span class="sd">            The string to be cleaned</span>
-<span class="sd">        is_url : bool </span>
-<span class="sd">            If True then remove characters after the &#39;?&#39; which are utm parameters</span>
-<span class="sd">            These can be present in soem urls we recieve and others not</span>
-<span class="sd">        Returns </span>
-<span class="sd">        ----------------</span>
-<span class="sd">        string : str</span>
-<span class="sd">            A cleaned string stripped of whitespace, punctuation and emojis&quot;&quot;&quot;</span>
-    <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">is_url</span><span class="p">:</span>
-        <span class="c1"># get rid of everything after they start to be utm parameters</span>
-        <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">string</span> <span class="o">=</span> <span class="n">emoji_pattern</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
-    <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,)</span>
-    <span class="n">string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^\w\s]&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">string</span>
-</code></pre></div></td></tr></table></div>
-      </details>
-  </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-
 <h2 id="vee_clean.cleaning_functions.strip_object_columns" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">strip_object_columns</span><span class="p">(</span><span class="n">df</span><span class="p">)</span></code>
 
@@ -1575,13 +1435,13 @@ are essentially the same but one just has a whitespace</p>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">202</span>
-<span class="normal">203</span>
-<span class="normal">204</span>
-<span class="normal">205</span>
-<span class="normal">206</span>
-<span class="normal">207</span>
-<span class="normal">208</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">strip_object_columns</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">strip_object_columns</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Strips leading and trailing whitespaces in columns containing strings. </span>
 <span class="sd">        This stops effective duplications when two categories in a column </span>
 <span class="sd">        are essentially the same but one just has a whitespace&quot;&quot;&quot;</span>
@@ -1612,19 +1472,19 @@ the highest amount of 'impressions' or 'video views'</p>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">367</span>
-<span class="normal">368</span>
-<span class="normal">369</span>
-<span class="normal">370</span>
-<span class="normal">371</span>
-<span class="normal">372</span>
-<span class="normal">373</span>
-<span class="normal">374</span>
-<span class="normal">375</span>
-<span class="normal">376</span>
-<span class="normal">377</span>
-<span class="normal">378</span>
-<span class="normal">379</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">two_urls_per_post_to_1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">two_urls_per_post_to_1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Sometimes there are identical posts posted on the same day. </span>
 <span class="sd">    This can be used to return just the url of the post with</span>
 <span class="sd">    the highest amount of &#39;impressions&#39; or &#39;video views&#39;&quot;&quot;&quot;</span>
@@ -1661,26 +1521,26 @@ it is a numerical code, sometimes it is alphanumeric</p>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">266</span>
-<span class="normal">267</span>
-<span class="normal">268</span>
-<span class="normal">269</span>
-<span class="normal">270</span>
-<span class="normal">271</span>
-<span class="normal">272</span>
-<span class="normal">273</span>
-<span class="normal">274</span>
-<span class="normal">275</span>
-<span class="normal">276</span>
-<span class="normal">277</span>
-<span class="normal">278</span>
-<span class="normal">279</span>
-<span class="normal">280</span>
-<span class="normal">281</span>
-<span class="normal">282</span>
-<span class="normal">283</span>
-<span class="normal">284</span>
-<span class="normal">285</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">updated_value_extract</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">updated_value_extract</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract the unique identifier for a post from the url</span>
 <span class="sd">        This format of this code depends on the platform, sometimes</span>
 <span class="sd">        it is a numerical code, sometimes it is alphanumeric&quot;&quot;&quot;</span>
@@ -1723,17 +1583,17 @@ This function converts it into just seconds</p>
 
       <details class="quote">
         <summary>Source code in <code>vee_clean/cleaning_functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">398</span>
-<span class="normal">399</span>
-<span class="normal">400</span>
-<span class="normal">401</span>
-<span class="normal">402</span>
-<span class="normal">403</span>
-<span class="normal">404</span>
-<span class="normal">405</span>
-<span class="normal">406</span>
-<span class="normal">407</span>
-<span class="normal">408</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">video_len_toseconds</span><span class="p">(</span><span class="n">len_string</span><span class="p">):</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">video_len_toseconds</span><span class="p">(</span><span class="n">len_string</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Video lengths come through tracer in the format &#39;minute:seconds&#39;, e.g. &#39;1:20&#39; or 80 seconds</span>
 <span class="sd">        This function converts it into just seconds&quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
