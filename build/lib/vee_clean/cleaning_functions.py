@@ -3,6 +3,8 @@ import regex as re
 import logging
 import os
 import sys
+from unidecode import unidecode
+
 pickle_path = "Pickled Files/"
 
 logger = logging.getLogger('CleaningFunctions')
@@ -29,30 +31,6 @@ emoji_pattern = re.compile("["
                            "]+", flags=re.UNICODE)
 
 
-def prepare_string_matching(string, is_url=False):
-    """Prepare strings for matching say in a merge function by removing unnecessary 
-        detail, whitespaces and converting to lower case
-        Remove emojis as sometimes they can not come through properly in Tracer data
-
-        Parameters
-        -----------------
-        string : str 
-            The string to be cleaned
-        is_url : bool 
-            If True then remove characters after the '?' which are utm parameters
-            These can be present in soem urls we recieve and others not
-        Returns 
-        ----------------
-        string : str
-            A cleaned string stripped of whitespace, punctuation and emojis"""
-    string = string.lower()
-    if is_url:
-        # get rid of everything after they start to be utm parameters
-        string = string.split('?')[0]
-    string = emoji_pattern.sub(r'', string)
-    string = string.replace(' ', '',)
-    string = re.sub(r'[^\w\s]', '', string)
-    return string
 
 def clean_column_names(df, hardcode_col_dict = {},errors= 'ignore',cols_no_change = ['spend', 'date', 'currency', 
                             'cohort', 'creative_name', 'group_id', 'engagements', 'created',
@@ -61,23 +39,21 @@ def clean_column_names(df, hardcode_col_dict = {},errors= 'ignore',cols_no_chang
                             'adset_targeting', 'completion_rate', 'targeting', 'cohort_new',
                             'video_completions', 'post_hashtags']):
 
-    """Cleans the column names of a advert performance (organic or paid) dataset, commonly from
-        Tracer but could also be from Sprout social. The column names will be standardised so 
-        then other functions in other libraries can work with the dataset. 
-        
-        Parameters
-        ----------------
-        df : DataFrame
-            Input dataframe containing a row item for each peice of creative or a day of advertising
-        hardcode_col_dict : dictionary
-            A dictionary specifying exact transformations of column names from the key to the value
-        cols_no_change : str, list
-            A list of column names to be left unchanged
-        
-        Returns
-        ----------------
-        df : DataFrame
-            Output dataframe with the column names standardised"""
+    """Cleans the column names of an advertisement performance (organic or paid) dataset, commonly from
+    Tracer but could also be from Sprout social. The column names will be standardized so
+    then other functions in other libraries can work with the dataset.
+
+    Args:
+        df (DataFrame): Input dataframe containing a row item for each piece of creative or a day of advertising.
+        hardcode_col_dict (Dict[str, str], optional): A dictionary specifying exact transformations of column names
+                                                        from the key to the value.
+        errors (str, optional): How to handle errors during the conversion.
+                                Can be 'raise', 'ignore' or 'warn'
+        cols_no_change (List[str], optional): A list of column names to be left unchanged.
+
+    Returns:
+        DataFrame: Output dataframe with the column names standardized."""
+    
     new_columns = []
     for column in df.columns:
         column = column.lower()
@@ -162,17 +138,15 @@ def clean_column_names(df, hardcode_col_dict = {},errors= 'ignore',cols_no_chang
 
 def extract_country_from_string(string, client_name, hardcode_dict):
     """Converts a string containing info identifying a certain 
-        Parameters
-        ---------------
-            string : str 
-                string to pass through perhaps in a lambda function, the country is detected from this
-            client_name : str 
-                name of the client that is removed to make the detection of country easier, 
-                for example so you are not searching for 'de' to find Germany with 'indeed' in the string
-        Returns
-        ---------------
-            country_code : str 
-                country Tag abbreviation mostly following the ISO 3166-1 alpha-2 format"""
+    Args:
+        string : str 
+            string to pass through perhaps in a lambda function, the country is detected from this
+        client_name : str 
+            name of the client that is removed to make the detection of country easier, 
+            for example so you are not searching for 'de' to find Germany with 'indeed' in the string
+    Returns:
+        country_code : str 
+            country Tag abbreviation mostly following the ISO 3166-1 alpha-2 format"""
     string = str(string).lower().strip()
     hardcode_dict = {k.lower():v for k,v in hardcode_dict.items()}
     client_name = client_name.lower()
@@ -212,7 +186,23 @@ def strip_object_columns(df):
     return df
 
 def extract_region_from_country(country):
-    """Extracts the region from the country column"""
+    """Extracts the region from the given country.
+
+    Args:
+        country (str): A string representing the country name.
+
+    Returns:
+        str: The region of the given country, if it is in 'UK/IE', 'NL', 'DE', 'FR', 'IT', 'BE',
+            it returns "EMEA". If the country is 'CA' or 'US', it returns "N. America". If the
+            country is not found, it returns None.
+    Example:
+    >>> extract_region_from_country("FR")
+    'EMEA'
+    >>> extract_region_from_country("US")
+    'N. America'
+    >>> extract_region_from_country("XX")
+    None
+    """
     if country == 'UK/IE' or country == 'NL' or country == 'DE' \
             or country == 'FR' or country == 'IT' or country == 'BE':
         return "EMEA"
@@ -220,6 +210,7 @@ def extract_region_from_country(country):
         return "N. America"
     else:
         return None
+
 
 def clean_platform_name(platform):
     """Cleans platform name, deals with the fact that most platforms 
@@ -300,16 +291,21 @@ def clean_media_type(media_type):
 
 
 def clean_placement(placement):
-    """Clean a placement string into a standardised placement"""
+    """Clean a placement string into a standardised placement
+    Args:
+        placement (str): A string representing the placement of the post 
+    Returns:
+        placement (str): The standardised placement of the post, if it is in 'Reel', 'Story' or 'Feed'"""
+        
     placement = str(placement).title().strip()
     if placement == 'Nan' or placement == 'None' or placement == 'Null' or placement == '':
-        placement = 'N/A'
+        placement = 'Feed'
     elif ('Reel' in placement):
         placement = 'Reel'
     elif 'Story' in placement:
         placement = 'Story'
     else:
-        placement = 'Post'
+        placement = 'Feed'
     return placement
 
 def extract_quarter_from_date(date):
@@ -358,7 +354,7 @@ def two_urls_per_post_to_1(x):
         max_score = x['video_views'].max()
 
     # return pd.Series(d,index=list(d.keys()))
-    return x[x[target_col] == max_score]['url']
+    return x[x[target_col] == max_score][['url','influencer?']]
 
 
 # for ID_Organic__CA_2022_Q2_USD_ENG_TW

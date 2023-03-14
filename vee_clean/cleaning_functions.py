@@ -3,6 +3,8 @@ import regex as re
 import logging
 import os
 import sys
+from unidecode import unidecode
+
 pickle_path = "Pickled Files/"
 
 logger = logging.getLogger('CleaningFunctions')
@@ -29,30 +31,6 @@ emoji_pattern = re.compile("["
                            "]+", flags=re.UNICODE)
 
 
-def prepare_string_matching(string, is_url=False):
-    """Prepare strings for matching say in a merge function by removing unnecessary 
-        detail, whitespaces and converting to lower case
-        Remove emojis as sometimes they can not come through properly in Tracer data
-
-        Parameters
-        -----------------
-        string : str 
-            The string to be cleaned
-        is_url : bool 
-            If True then remove characters after the '?' which are utm parameters
-            These can be present in soem urls we recieve and others not
-        Returns 
-        ----------------
-        string : str
-            A cleaned string stripped of whitespace, punctuation and emojis"""
-    string = string.lower()
-    if is_url:
-        # get rid of everything after they start to be utm parameters
-        string = string.split('?')[0]
-    string = emoji_pattern.sub(r'', string)
-    string = string.replace(' ', '',)
-    string = re.sub(r'[^\w\s]', '', string)
-    return string
 
 def clean_column_names(df, hardcode_col_dict = {},errors= 'ignore',cols_no_change = ['spend', 'date', 'currency', 
                             'cohort', 'creative_name', 'group_id', 'engagements', 'created',
