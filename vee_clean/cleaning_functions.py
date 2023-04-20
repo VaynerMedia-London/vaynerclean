@@ -4,22 +4,10 @@ import logging
 import os
 import sys
 from unidecode import unidecode
+from veetility import utility_functions
 
 pickle_path = "Pickled Files/"
-
-logger = logging.getLogger('CleaningFunctions')
-if logger.hasHandlers():
-    logger.handlers = []
-if os.path.isdir('logs') == False:
-    os.mkdir('logs')
-logger.setLevel(logging.INFO)
-logger.addHandler(logging.StreamHandler(sys.stdout))
-formatter = logging.Formatter('%(levelname)s %(asctime)s - %(message)s')
-
-file_handler = logging.FileHandler(f'./logs/CleaningFunctions.log')
-file_handler.setFormatter(formatter)
-logger.addHandler(file_handler)
-
+cleaning_logger = utility_functions.Logger('Indeed','CleaningFunctions')
 # %% -----------------------------
 # Emojis to clean out of copy messages
 # -----------------------------
@@ -29,8 +17,6 @@ emoji_pattern = re.compile("["
                            u"\U0001F680-\U0001F6FF"  # transport & map symbols
                            u"\U0001F1E0-\U0001F1FF"  # flags (iOS)
                            "]+", flags=re.UNICODE)
-
-
 
 def clean_column_names(df, hardcode_col_dict = {},errors= 'ignore',cols_no_change = ['spend', 'date', 'currency', 
                             'cohort', 'creative_name', 'group_id', 'engagements', 'created',
@@ -79,7 +65,7 @@ def clean_column_names(df, hardcode_col_dict = {},errors= 'ignore',cols_no_chang
         elif (('adset' in column) or ('group' in column)) and ('name' in column):
             column = 'group_name'
         elif ('ad' in column) and ('name' in column):
-            column = 'name' # for tt_organic
+            column = 'ad_name' # for tt_organic
         elif ('creative' in column) and ('name' in column):
             column = 'creative_name'
         elif ('video' in column) and ('impression' in column):                       
@@ -88,7 +74,7 @@ def clean_column_names(df, hardcode_col_dict = {},errors= 'ignore',cols_no_chang
             column = 'shares'
         elif (('conversion' in column) or ('lifetime'in column)) and ('save' in column): #_1d_click_onsite_conversion_post_save in fb_ig_paid data
             column = 'saved'
-        elif ('video' in column) and (('100' in column) or ('complete' in column) or('full' in column)):
+        elif ('video' in column) and (('100' in column) or ('complet' in column) or('full' in column)):
             column = 'video_completions'
         elif ('video' in column) and ('view' in column) and ('0' not in column) and ('5' not in column): #don't include columsn with 25,50,75% completion
             column = 'video_views'
@@ -126,11 +112,11 @@ def clean_column_names(df, hardcode_col_dict = {},errors= 'ignore',cols_no_chang
             message = f'Column "{column}" is not handled in column cleaning function'
             if errors == 'raise':
                 raise Exception(message)
-            logger.info(message)
+            cleaning_logger.logger.info(message)
 
         new_columns.append(column)
     if len(new_columns) != len(set(new_columns)):
-        logger.exception(f'Duplicate column names found {sorted(new_columns)}')
+        cleaning_logger.logger.exception(f'Duplicate column names found {sorted(new_columns)}')
         raise ValueError
     df.columns = new_columns
 
