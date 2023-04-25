@@ -19,7 +19,7 @@ emoji_pattern = re.compile("["
                            "]+", flags=re.UNICODE)
 
 def clean_column_names(df, hardcode_col_dict = {},errors= 'ignore',cols_no_change = ['spend', 'date', 'currency', 
-                            'cohort', 'creative_name', 'group_id', 'engagements', 'created',
+                            'cohort', 'creative_name', 'group_id', 'engagements', 'created', 'ad_id',
                             'plays', 'saved', 'post_hastags', 'content_type', 'linked_content', 'post_id',
                             'video_duration', 'average_time_watched', 'total_time_watched',
                             'adset_targeting', 'completion_rate', 'targeting', 'cohort_new',
